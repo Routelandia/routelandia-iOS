@@ -11,6 +11,8 @@ import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var nextButton: UIButton!
+
     let searchRadius: CLLocationDistance = 1000
 
     override func viewDidLoad() {
