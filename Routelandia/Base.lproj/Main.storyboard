@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="b75-9Z-GsO">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Routelandia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapView" id="vXZ-lx-hvc" customClass="MapViewController" customModule="Routelandia" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -16,31 +16,87 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uVF-ul-fT4">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="0.0" width="400" height="800"/>
-                                </variation>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="JZW-Hk-QZF">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="hdp-xQ-X6Z"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="uVF-ul-fT4"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="uVF-ul-fT4"/>
-                            </mask>
-                        </variation>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="JZW-Hk-QZF" secondAttribute="trailing" id="644-eK-nEP"/>
+                            <constraint firstItem="JZW-Hk-QZF" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="64" id="E6Y-Za-Pjv"/>
+                            <constraint firstItem="JZW-Hk-QZF" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="bmx-5l-hgi"/>
+                            <constraint firstAttribute="bottom" secondItem="JZW-Hk-QZF" secondAttribute="bottom" id="eGl-8K-Bdy"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Tz4-sl-g0A"/>
                     <connections>
-                        <outlet property="mapView" destination="uVF-ul-fT4" id="Paj-Wy-Ut0"/>
+                        <outlet property="mapView" destination="JZW-Hk-QZF" id="4Bf-Qk-5t4"/>
+                        <segue destination="9Gy-CQ-iLz" kind="show" id="yDQ-bo-yOy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-469" y="198"/>
+        </scene>
+        <!--Time Picker View Controller-->
+        <scene sceneID="NSe-eF-nlF">
+            <objects>
+                <viewController storyboardIdentifier="TimePicker" id="9Gy-CQ-iLz" customClass="TimePickerViewController" customModule="Routelandia" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fCl-jU-9ZT"/>
+                        <viewControllerLayoutGuide type="bottom" id="eTy-vu-98l"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VvO-p4-WVo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="wce-Cv-win" kind="show" id="cFl-rP-Twt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YTt-Na-4yE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="247" y="198"/>
+        </scene>
+        <!--Results View Controller-->
+        <scene sceneID="Wbv-4y-Mmb">
+            <objects>
+                <viewController storyboardIdentifier="Results" id="wce-Cv-win" customClass="ResultsViewController" customModule="Routelandia" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Epv-BD-Lvf"/>
+                        <viewControllerLayoutGuide type="bottom" id="IK8-m4-GRB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kTe-E8-33h">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hJw-GL-P2L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="955" y="198"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FbG-Uu-d2V">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b75-9Z-GsO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jjW-Ph-zKk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="Pwg-Ys-NyQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hNC-wt-ffi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="15" y="-630"/>
         </scene>
     </scenes>
 </document>
