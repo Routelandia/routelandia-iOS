@@ -3,14 +3,16 @@
 //  Routelandia
 //
 //  Created by LOC LE on 3/20/15.
-//  Copyright (c) 2015 Portland State University. All rights reserved.
+//  Copyright (c) 2015 Routelandia. All rights reserved.
 //
 
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var nextButton: UIButton!
+
     let searchRadius: CLLocationDistance = 1000
 
     override func viewDidLoad() {
