@@ -3,7 +3,7 @@
 //  Routelandia
 //
 //  Created by Peter Gicking on 3/20/15.
-//  Copyright (c) 2015 CapstoneTeamB. All rights reserved.
+//  Copyright (c) 2015 Routelandia. All rights reserved.
 //
 
 import UIKit
