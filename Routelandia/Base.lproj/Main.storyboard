@@ -75,17 +75,36 @@
                                     <segue destination="wce-Cv-win" kind="show" id="RH0-rJ-0OZ"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="atW-WG-xXo">
+                                <rect key="frame" x="122" y="304" width="356" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9Gy-CQ-iLz" id="51N-SI-XjS"/>
+                                    <outlet property="delegate" destination="9Gy-CQ-iLz" id="xcO-57-dRV"/>
+                                </connections>
+                            </pickerView>
+                            <datePicker contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="lmf-pi-l29">
+                                <rect key="frame" x="112" y="105" width="376" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="448681277.27547097">
+                                    <!--2015-03-22 01:41:17 +0000-->
+                                </date>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="atW-WG-xXo" secondAttribute="centerX" id="IlD-U5-5H8"/>
                             <constraint firstAttribute="centerX" secondItem="JEQ-eN-3Wd" secondAttribute="centerX" id="Qz1-Ti-Pm7"/>
+                            <constraint firstAttribute="centerX" secondItem="lmf-pi-l29" secondAttribute="centerX" id="dxn-ss-NiW"/>
                             <constraint firstAttribute="bottom" secondItem="JEQ-eN-3Wd" secondAttribute="bottom" constant="20" id="jGT-3A-Snn"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dayPicker" destination="atW-WG-xXo" id="3yi-dq-Orc"/>
+                        <outlet property="timePicker" destination="lmf-pi-l29" id="TKm-kK-usd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTt-Na-4yE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="247" y="198"/>
+            <point key="canvasLocation" x="239" y="198"/>
         </scene>
         <!--Results View Controller-->
         <scene sceneID="Wbv-4y-Mmb">
@@ -98,7 +117,18 @@
                     <view key="view" contentMode="scaleToFill" id="kTe-E8-33h">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Results go here" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RET-EA-uHW">
+                                <rect key="frame" x="239" y="285" width="122" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="RET-EA-uHW" secondAttribute="centerX" id="Rhf-zJ-2d3"/>
+                            <constraint firstAttribute="centerY" secondItem="RET-EA-uHW" secondAttribute="centerY" id="ggK-ct-7oT"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hJw-GL-P2L" userLabel="First Responder" sceneMemberID="firstResponder"/>
