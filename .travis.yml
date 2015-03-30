@@ -4,10 +4,6 @@ before_install:
     - export LANG=en_US.UTF-8
     - env
     - locale
-    - gem install cocoapods --quiet
-    - pod --version
-    - pod setup --silent
-    - pod repo update --silent
     
 script:
     - xctool -project Routelandia.xcodeproj -scheme Routelandia -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
