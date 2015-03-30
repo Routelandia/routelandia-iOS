@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Routelandia/routelandia-iOS.svg?branch=master)](https://travis-ci.org/Routelandia/routelandia-iOS)
+
 # routelandia-iOS
 The iOS client for the Routelandia project. 
 
