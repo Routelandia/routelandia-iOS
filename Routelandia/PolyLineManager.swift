@@ -20,13 +20,25 @@ class PolyLineManager{
         //grab polyline, add it to list
         //return list to map view
         
+        
+        
         var i = 0
         var highwayIds = [Int32]()
-        while(highways["results"][i] == nil){
+        for(i = 0; i<highways["results"].count; ++i){
             highwayIds.append(highways["results"][i]["highwayid"].int32!)
-            i = i + 1
+            println(highways["results"][i]["highwayid"].int32!)
+            
         }
+
         
+        
+        i = 0
+//        while(highwayIds[i]){
+//            self.getHighways(highwayIds[i])
+//        }
+    }
+    
+    func getHighway(){
         
     }
     

@@ -21,6 +21,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let initialLocation = CLLocation(latitude: 45.509534, longitude: -122.681081)
         centerMapOnLocation(initialLocation)
         createPolylineTEST()
+        PolyLineManager().getAllhighways()
     }
     
     @IBAction func zoomIn(sender: AnyObject) {
