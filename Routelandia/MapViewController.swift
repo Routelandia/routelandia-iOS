@@ -43,23 +43,22 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
     func createPolylineTEST() {
         var point1 = CLLocationCoordinate2DMake(45.618082690786, -122.67548976989);
-        var point2 = CLLocationCoordinate2DMake(45.615230134156, -122.67716015033);
-        var point3 = CLLocationCoordinate2DMake(45.613067823185, -122.67844475556);
-        var point4 = CLLocationCoordinate2DMake(45.613017670919, -122.67847455987);
-        var point5 = CLLocationCoordinate2DMake(45.612975049029, -122.67849987978);
+        var point2 = CLLocationCoordinate2DMake(45.608105591041, -122.68130608198);
+        var point3 = CLLocationCoordinate2DMake(45.598834851874, -122.68439119221);
+        var point4 = CLLocationCoordinate2DMake(45.589224815901, -122.68159684059);
+        var point5 = CLLocationCoordinate2DMake(45.584487783086, -122.67948963368);
         
         var points: [CLLocationCoordinate2D]
         points = [point1, point2, point3, point4, point5]
         
-        var geodesic = MKGeodesicPolyline(coordinates: &points[0], count: 5)
+        var geodesic = MKGeodesicPolyline(coordinates: &points, count: 5)
         
         self.mapView.addOverlay(geodesic)
-        
         
         UIView.animateWithDuration(1.5, animations: { () -> Void in
             let span = MKCoordinateSpanMake(0.01, 0.01)
             let region1 = MKCoordinateRegion(center: point1, span: span)
-            self.mapView.setRegion(region1, animated: true)
+            //self.mapView.setRegion(region1, animated: true)
         })
         
     }
@@ -68,7 +67,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         if overlay is MKPolyline {
             var polylineRenderer = MKPolylineRenderer(overlay: overlay)
-            polylineRenderer.strokeColor = UIColor.whiteColor()
+            polylineRenderer.strokeColor = UIColor.redColor()
             polylineRenderer.lineWidth = 2
             return polylineRenderer
         } 
