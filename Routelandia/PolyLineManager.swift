@@ -34,14 +34,25 @@ class PolyLineManager{
         i = 0
         var j = 0
         while(j < highwayIds.count){
-            self.getHighway(highwayIds[i])
+            self.getHighwayCoordinates(highwayIds[i])
             ++j
         }
     }
     
-    func getHighway(id: Int32){
+    func getHighwayCoordinates(id: Int32) -> [([Int: Float])]{
         let highway = ApiFetcher().fetchJson("highways/"+String(id)+"/stations")
-        println(highway["results"][0]["geojson_raw"]["coordinates"][0])
+        
+        var i = 0
+        var coordianteList = [[Int: Float]]()
+        for(i = 0; i < highway["results"][0]["geojson_raw"]["coordinates"][0].count; ++i){
+            //its backwards because why did we leave it backwards
+            var lat = highway["results"][0]["geojson_raw"]["coordinates"][i][1].float!
+            var long = highway["results"][0]["geojson_raw"]["coordinates"][i][0].float!
+            var coordinates: [Int: Float] = [0:lat, 1:long]
+            coordianteList.append(coordinates)
+        }
+        
+        return coordianteList
     }
     
 }
