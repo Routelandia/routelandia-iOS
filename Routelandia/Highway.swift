@@ -16,6 +16,7 @@ class Highway{
     let bound: String
     let oppositehighwayid: Int32
     
+
     init(json:JSON){
         highwayid = json["results"][0]["highwayid"].int32!
         direction = json["results"][0]["direction"].stringValue
