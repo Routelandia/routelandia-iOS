@@ -26,20 +26,22 @@ class PolyLineManager{
         var highwayIds = [Int32]()
         for(i = 0; i<highways["results"].count; ++i){
             highwayIds.append(highways["results"][i]["highwayid"].int32!)
-            println(highways["results"][i]["highwayid"].int32!)
-            
+            //println(highways["results"][i]["highwayid"].int32!)
         }
 
         
         
         i = 0
-//        while(highwayIds[i]){
-//            self.getHighways(highwayIds[i])
-//        }
+        var j = 0
+        while(j < highwayIds.count){
+            self.getHighway(highwayIds[i])
+            ++j
+        }
     }
     
-    func getHighway(){
-        
+    func getHighway(id: Int32){
+        let highway = ApiFetcher().fetchJson("highways/"+String(id)+"/stations")
+        println(highway["results"][0]["geojson_raw"]["coordinates"][0])
     }
     
 }
