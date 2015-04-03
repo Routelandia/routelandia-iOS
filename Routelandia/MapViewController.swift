@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var MapView: MKMapView!
     @IBOutlet weak var nextButton: UIButton!
 
     let searchRadius: CLLocationDistance = 1000
@@ -39,7 +39,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
             searchRadius * 22.0, searchRadius * 22.0)
-        mapView.setRegion(coordinateRegion, animated: true)
+        MapView.setRegion(coordinateRegion, animated: true)
     }
 
     func createPolylineTEST() {
@@ -52,9 +52,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         var points: [CLLocationCoordinate2D]
         points = [point1, point2, point3, point4, point5]
         
+        
         var geodesic = MKGeodesicPolyline(coordinates: &points, count: 5)
         
-        self.mapView.addOverlay(geodesic)
+        self.MapView.addOverlay(geodesic)
         
         UIView.animateWithDuration(1.5, animations: { () -> Void in
             let span = MKCoordinateSpanMake(0.01, 0.01)
@@ -64,18 +65,42 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
     }
     
-    func DrawAllHighways(allHighways: [[[Int: Double]]]){
-        var i = 0
-        var j = 0
+    func drawPolyLine(PolyLine: MKGeodesicPolyline){
+        
+        self.MapView.addOverlay(PolyLine)
+        var point1 = CLLocationCoordinate2DMake(45.289244693296,-122.76927239256)
+        
+        UIView.animateWithDuration(1.5, animations: { () -> Void in
+            let span = MKCoordinateSpanMake(0.01, 0.01)
+            let region1 = MKCoordinateRegion(center: point1, span: span)
+            //self.mapView.setRegion(region1, animated: true)
+        })
+
+    }
+    
+    func DrawAllHighways(allHighways: [[[Int: Double]]]) -> MKGeodesicPolyline{
         //println(allHighways.count)
-        for(i = 0; i < allHighways.count; ++i){
-            for(j = 0; j < 10; ++j){
-                //println(allHighways[0][0][0]!)
-                let lat = allHighways[j]
-                println(lat)
-                
+        var points: [CLLocationCoordinate2D]
+        points = [CLLocationCoordinate2D]()
+        for(var i = 0; i < allHighways.count; ++i){
+            for(var j = 0; j < allHighways[j].count; ++j){
+//                println(allHighways[0][0][0]!)
+//                println("Adding point:")
+//                print(allHighways[i][j][0]!)
+//                print(" and ")
+//                println(allHighways[i][j][1]!)
+                var point = CLLocationCoordinate2DMake(allHighways[i][j][0]!, allHighways[i][j][1]!);
+                points.append(point)
             }
         }
+        //println(points)
+        
+        var PolyLine = MKGeodesicPolyline(coordinates: &points, count: points.count)
+        
+        //self.mapView.addOverlay(PolyLine)
+        self.drawPolyLine(PolyLine)
+        
+        return PolyLine
     }
     
     func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
