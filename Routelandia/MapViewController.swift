@@ -21,7 +21,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let initialLocation = CLLocation(latitude: 45.509534, longitude: -122.681081)
         centerMapOnLocation(initialLocation)
         createPolylineTEST()
-        PolyLineManager().getAllhighways()
+        DrawAllHighways(PolyLineManager().getAllhighways())
     }
     
     @IBAction func zoomIn(sender: AnyObject) {
@@ -62,6 +62,17 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             //self.mapView.setRegion(region1, animated: true)
         })
         
+    }
+    
+    func DrawAllHighways(allHighways: [[[Int: Float]]]){
+        var i = 0
+        var j = 0
+        println(allHighways.count)
+        for(i = 0; i < allHighways.count; ++i){
+            for(j = 0; j < 10; ++j){
+                
+            }
+        }
     }
     
     func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {

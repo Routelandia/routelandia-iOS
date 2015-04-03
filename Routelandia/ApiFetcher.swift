@@ -42,6 +42,10 @@ class ApiFetcher{
         var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
         let json = JSON(jsonResult)
         
+        if(dataVal == 0){
+            NSException(name: "No Network", reason: "routelandias server is not responding", userInfo: nil).raise()
+        }
+        
         return json
             
     }
