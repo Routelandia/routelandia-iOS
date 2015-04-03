@@ -64,12 +64,15 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
     }
     
-    func DrawAllHighways(allHighways: [[[Int: Float]]]){
+    func DrawAllHighways(allHighways: [[[Int: Double]]]){
         var i = 0
         var j = 0
-        println(allHighways.count)
+        //println(allHighways.count)
         for(i = 0; i < allHighways.count; ++i){
             for(j = 0; j < 10; ++j){
+                //println(allHighways[0][0][0]!)
+                let lat = allHighways[j]
+                println(lat)
                 
             }
         }

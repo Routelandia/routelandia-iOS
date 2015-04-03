@@ -10,10 +10,10 @@ import Foundation
 
 class PolyLineManager{
     
-    func getAllhighways() -> [[[Int: Float]]]{
+    func getAllhighways() -> [[[Int: Double]]]{
         let highways = ApiFetcher().fetchJson("highways")
         
-        var allHighways = [[[Int: Float]]]()
+        var allHighways = [[[Int: Double]]]()
         //dynamically get number of highways
         //pass highway ids to different function
             //grab all the coordinates IN ORDER
@@ -43,17 +43,17 @@ class PolyLineManager{
         
     }
     
-    func getHighwayCoordinates(id: Int32) -> [([Int: Float])]{
+    func getHighwayCoordinates(id: Int32) -> [([Int: Double])]{
         var i = 0
-        var coordianteList = [[Int: Float]]()
+        var coordianteList = [[Int: Double]]()
         
         let highway = ApiFetcher().fetchJson("highways/"+String(id)+"/stations")
         
         for(i = 0; i < highway["results"][0]["geojson_raw"]["coordinates"][0].count; ++i){
             //its backwards because why did we leave it backwards
-            var lat = highway["results"][0]["geojson_raw"]["coordinates"][i][1].float!
-            var long = highway["results"][0]["geojson_raw"]["coordinates"][i][0].float!
-            var coordinates: [Int: Float] = [0:lat, 1:long]
+            var lat = highway["results"][0]["geojson_raw"]["coordinates"][i][1].double!
+            var long = highway["results"][0]["geojson_raw"]["coordinates"][i][0].double!
+            var coordinates: [Int: Double] = [0:lat, 1:long]
             coordianteList.append(coordinates)
         }
         
