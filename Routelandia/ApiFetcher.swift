@@ -32,17 +32,15 @@ class ApiFetcher{
         let url = NSURL(string: apiRoot+route)
         let request = NSURLRequest(URL: url!)
         
-
         var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?
         >=nil
         var error: NSErrorPointer = nil
-        var dataVal: NSData =  NSURLConnection.sendSynchronousRequest(request, returningResponse: response, error:nil)!
+        var dataVal: NSData =  NSURLConnection.sendSynchronousRequest(request, returningResponse: response, error:nil) as NSData!
         var err: NSError
-
         var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
         let json = JSON(jsonResult)
         
-        if(dataVal == 0){
+        if(error != nil){
             NSException(name: "No Network", reason: "routelandias server is not responding", userInfo: nil).raise()
         }
         

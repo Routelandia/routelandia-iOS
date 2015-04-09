@@ -27,7 +27,7 @@ class PolyLineManager{
         var highwayIds = [Int32]()
         for(i = 0; i<highways["results"].count; ++i){
             highwayIds.append(highways["results"][i]["highwayid"].int32!)
-            //println(highways["results"][i]["highwayid"].int32!)
+            println(highways["results"][i]["highwayid"].int32!)
         }
         
         
